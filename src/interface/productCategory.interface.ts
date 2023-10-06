@@ -11,3 +11,8 @@ export interface IProductCategory {
     createdAt: string
     updatedAt: string
   }
+
+export interface IListProductCategory {
+  count:number
+  rows: IProductCategory[]
+}

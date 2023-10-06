@@ -1,6 +1,8 @@
-import React, { FC, useEffect, useState } from 'react'
-import { useAppSelector, useAppDispatch } from './store/app/hook'
+import React, { FC, useEffect, } from 'react'
+import { useAppSelector } from './store/app/hook'
 import { MODE_THEME } from './constants'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 const App: FC<{ children: React.ReactNode }> = ({ children }) => {
   const theme = useAppSelector((state) => state.common.theme)
@@ -18,7 +20,23 @@ const App: FC<{ children: React.ReactNode }> = ({ children }) => {
     }
   }, [theme])
   console.log(theme)
-  return <>{children}</>
+  return (
+    <>
+      {children}
+      <ToastContainer
+        position='top-right'
+        // transition={Zoom}
+        autoClose={5000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+    </>
+  )
 }
 
 export default App

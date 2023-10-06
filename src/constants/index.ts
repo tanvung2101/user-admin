@@ -18,6 +18,17 @@ export const GLOBAL_STATUS = {
   ACTIVE: 1,
 };
 
+export const MASTER_DATA = [
+  {value: 1, nameMaster: "Tình trạng đơn hàng"},
+  {value: 2, nameMaster: "Cấp bậc người dùng"},
+  {value: 3, nameMaster: "Đơn vị sản phẩm"},
+  {value: 4, nameMaster: "Dung tích sản phẩm"},
+  {value: 5, nameMaster: "Phân quyền"},
+  {value: 6, nameMaster: "Điều kiện tăng cấp bậc"},
+  {value: 7, nameMaster: "Phần trăm cho người giới thiệu"},
+  {value: 8, nameMaster: "Nhà sản xuất"},
+];
+
 export const MASTER_DATA_NAME = {
   STATUS_ORDER: 1,
   LEVEL_USER: 2,

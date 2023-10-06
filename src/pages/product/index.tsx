@@ -63,6 +63,17 @@ const Product = () => {
 
   const [listCategory, setListCategory] = useState<{ id: number; category: string }[]>([])
 
+  const fetchMasterData = async () => {
+    const fetchMasterCapacity = await configDataApis.getAllConfigData({
+      idMaster: MASTER_DATA_NAME.CAPACITY_PRODUCT
+    })
+    const fetchMasterUnit = await configDataApis.getAllConfigData({
+      idMaster: MASTER_DATA_NAME.UNIT_PRODUCT
+    })
+    setMasterCapactity(fetchMasterCapacity)
+    setMasterUnit(fetchMasterUnit)
+  }
+
   const getListCategory = async () => {
     const categoryId: IProductCategory[] = await productCategoryApis.getAllCategory()
     console.log(categoryId)
@@ -78,16 +89,7 @@ const Product = () => {
     )
   }
 
-  const fetchMasterData = async () => {
-    const fetchMasterCapacity = await configDataApis.getAllConfigData({
-      idMaster: MASTER_DATA_NAME.CAPACITY_PRODUCT
-    })
-    const fetchMasterUnit = await configDataApis.getAllConfigData({
-      idMaster: MASTER_DATA_NAME.UNIT_PRODUCT
-    })
-    setMasterCapactity(fetchMasterCapacity)
-    setMasterUnit(fetchMasterUnit)
-  }
+  
   // console.log('first', listCategory)
   useEffect(() => {
     onGetListProduct()

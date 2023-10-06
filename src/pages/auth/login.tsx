@@ -44,7 +44,6 @@ const Login = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch<AppDispatch>()
   const {
-    register,
     handleSubmit,
     control,
     formState: { errors }
