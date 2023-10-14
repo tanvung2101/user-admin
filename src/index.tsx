@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import Login from './pages/auth/login'
 import './resources/styles/index.scss'
+import './style.css'
 import { Provider } from 'react-redux'
 import 'react-quill/dist/quill.snow.css'
 import { createBrowserRouter, Navigate, RouterProvider, useLocation } from 'react-router-dom'
@@ -18,6 +19,12 @@ import Product from '../src/pages/product/index'
 import ProductCategory from '../src/pages/product-category/index'
 import ProductOrigin from '../src/pages/product-origin'
 import ProductAttribute from '../src/pages/product-attribute'
+import CommingSoon from '../src/pages/comming-soon'
+import Order from '../src/pages/order/index'
+import OrderDetail from '../src/pages/order/order-detail'
+import SalesStatistics from '../src/pages/sales-statistics'
+import Contact from '../src/pages/contact/index'
+import User from '../src/pages/user'
 // import './assets/styles/app.css'
 
 axiosClient.defaults.headers.common = {
@@ -66,6 +73,30 @@ const router = createBrowserRouter([
       {
         path: '/product-attribute',
         element: <ProductAttribute />
+      },
+      {
+        path: '/order',
+        element: <Order />
+      },
+      {
+        path: '/order-new',
+        element: <CommingSoon />
+      },
+      {
+        path: '/order-detail/:orderCode',
+        element: <OrderDetail />
+      },
+      {
+        path: 'sales-statistics',
+        element: <SalesStatistics />
+      },
+      {
+        path: 'user',
+        element: <User />
+      },
+      {
+        path: 'contact',
+        element: <Contact />
       },
     ]
   },

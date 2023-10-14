@@ -4,11 +4,11 @@ import Header from './Header'
 
 const Layout = () => {
   return (
-    <div className='w-full flex'>
+    <div className='flex items-start justify-start'>
       <SideBar />
-      <div className='w-full px-8'>
+      <div className='w-full px-8 flex-shrink'>
         <Header />
-        <div className='inline w-full box-border'>
+        <div className='inline-block w-[1150px] mx-0'>
           <Outlet />
         </div>
       </div>

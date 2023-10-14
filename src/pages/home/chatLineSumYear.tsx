@@ -71,6 +71,7 @@ export function ChatLineSumYear({dataThisYear}: { dataThisYear: Order[] }) {
     labels,
     datasets: [
       {
+        tension: 0.4,
         label: 'Price',
         data: datachart,
         backgroundColor: [

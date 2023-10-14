@@ -44,3 +44,16 @@ export const IMAGE_TYPE = {
   SUB: 0,
   MAIN: 1
 };
+
+export const STATUS_ORDER = {
+  CONFIRMIMG:1,
+  CONFIRMED:2,
+  SHIPPING:3,
+  DELIVERED:4,
+  REJECT:5
+}
+
+export const ACCOUNT_STATUS = {
+  ACTIVATE: 1,
+  INACTIVATE: 2,
+};

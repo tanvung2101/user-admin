@@ -1,12 +1,12 @@
 export interface IUserInformation {
   userId: number
-  fullName: string
+  fullName: string | null
   address: string
-  cityCode: string
-  districtCode: string
-  wardCode: string
+  cityCode: string | null
+  districtCode: string | null
+  wardCode: string | null
   avatar: string
-  lastLogin: string
+  lastLogin: string | null
   createdAt: string
   updatedAt: string
 }
@@ -19,31 +19,31 @@ export interface IUserReferrer {
   createdAt: string
 }
 
-export interface User {
+export interface Users {
   id: number
   userCode: string
   email: string
-  username: string
-  phoneCode: string
-  phoneNumber: string
+  username: string | null
+  phoneCode: string | null
+  phoneNumber: string | null
   level: number
   role: number
   status: number
   createdAt: string
   updatedAt: string
   userInformation: IUserInformation
-  userReferral?: IUserReferral
-  userReferrer?: IUserReferrer[]
-  userBonus?: IuserBonus[]
+  userReferral: IUserReferral | null
+  userReferrer: IUserReferrer[] | []
+  userBonus: IuserBonus[] | []
 }
 
 interface IUserReferral {
-  createdAt?: string
-  genealogyPath?: string
-  referrerCode?: string
-  referrerId?: number
-  registerCode?: string
-  registerId?: number
+  createdAt: string
+  genealogyPath: string
+  referrerCode: string
+  referrerId: number
+  registerCode: string
+  registerId: number
 }
 interface IuserBonus {
   id: number
@@ -59,17 +59,17 @@ interface IuserBonus {
   order: {
     id: number
     paymentId: number
-    shipId: number
+    shipId: number | null
     userId: number
     fullName: string
     identification: string
     orderCode: string
     total: number
-    commission: null
+    commission: string | null
     totalBeforeFee: number
     email: string
     telephone: string
-    from: string
+    from: string | null
     address: string
     cityCode: number
     districtCode: number
@@ -85,12 +85,20 @@ interface IuserBonus {
   }
 }
 
-export interface ITopReferrer extends User {
+export interface ITopReferrer extends Users {
   userInformation: IUserInformation
   userReferrer: IUserReferrer[]
 }
 
 export type IListUser = {
   count: number
-  rows:  User[]
+  rows:  Users[]
+}
+
+export type IParamsListUser = {
+  search?: string
+  level?: number
+  role?: number
+  filter?: any[]
+  size?: number
 }

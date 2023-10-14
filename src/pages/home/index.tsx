@@ -73,13 +73,13 @@ const HomePage = () => {
 
   const fetchOrderListSuccess = async () => {
     try {
-      var date = new Date()
-      var firstDayOfThisMonth = new Date(date.getFullYear(), date.getMonth(), 1)
-      var lastDayOfThisMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0)
-      var firstDayOfLastMonth = new Date(date.getFullYear(), date.getMonth() - 1, 1)
-      var lastDayOfLastMonth = new Date(date.getFullYear(), date.getMonth(), 1)
-      var firstDayOfThisYear = new Date(date.getFullYear(), 0, 1)
-      var lastDayOfThisYear = new Date(date.getFullYear(), 0, 1)
+      let date = new Date()
+      let firstDayOfThisMonth = new Date(date.getFullYear(), date.getMonth(), 1)
+      let lastDayOfThisMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0)
+      let firstDayOfLastMonth = new Date(date.getFullYear(), date.getMonth() - 1, 1)
+      let lastDayOfLastMonth = new Date(date.getFullYear(), date.getMonth(), 1)
+      let firstDayOfThisYear = new Date(date.getFullYear(), 0, 1)
+      let lastDayOfThisYear = new Date(date.getFullYear(), 11, 31)
       console.log(firstDayOfThisMonth)
       const orderThisMonth = await orderApis.getListOrders({
         status: 4,
@@ -99,6 +99,7 @@ const HomePage = () => {
       setListOrderThisMonth(orderThisMonth)
       setListOrderLastMonth(orderThisLastMonth)
       setListOrderThisYear(orderThisYear)
+      console.log('orderThisYear', orderThisYear)
       setTotalThisMonth(orderThisMonth?.reduce((sum, order: Order) => (sum = +sum + +order.total), 0))
       setTotalLastMonth(orderThisLastMonth.reduce((sum, order: Order) => (sum = sum + order.total), 0))
       setTotalThisYaer(orderThisYear.reduce((sum, order: Order) => (sum = sum + order.total), 0))
@@ -116,7 +117,7 @@ const HomePage = () => {
   // console.log(listOrderThisMonth)
   return (
     <>
-      <div className='mt-10 mb-14 inline-grid'>
+      <div className='mt-10 mb-14'>
         <Row className='gutter-row mb-3' gutter={24}>
           <Col className='gutter-row' xs={24} sm={12} md={12} lg={8}>
             <Card bordered={false} style={{ backgroundColor: '#ffc53d', borderRadius: '20px' }}>
